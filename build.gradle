@@ -145,11 +145,11 @@ def makeVersion(String bumpType) {
 
     switch (bumpType.toLowerCase()) {
         case "major":
-            newVersion = "${Integer.parseInt(major) + 1}.${minor}.${patch}"
+            newVersion = "${Integer.parseInt(major) + 1}.0.0"
             break
 
         case "minor":
-            newVersion = "${major}.${Integer.parseInt(minor) + 1}.${patch}"
+            newVersion = "${major}.${Integer.parseInt(minor) + 1}.0"
             break
 
         case "patch":
