@@ -1,17 +1,6 @@
-package org.dreamfinity.template.network.packets;
+package org.dreamfinity.template.network.packets
 
-public enum EnumPacket {
-    GUILD_NAME(ClientPacketName.class),
+enum class EnumPacket(val packetClass: Class<out BasePacket?>) {
+    GUILD_NAME(ClientPacketName::class.java), GUILD_GETNAME(ServerPacketName::class.java)
 
-    GUILD_GETNAME(ServerPacketName.class);
-
-    private Class<? extends BasePacket> packetClass;
-
-    EnumPacket(Class<? extends BasePacket> packetClass) {
-        this.packetClass = packetClass;
-    }
-
-    public Class<? extends BasePacket> getPacketClass() {
-        return packetClass;
-    }
 }

@@ -1,11 +1,8 @@
-package org.dreamfinity.template.network.packets;
+package org.dreamfinity.template.network.packets
 
-import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBuf
 
-
-@SuppressWarnings("unused")
-public abstract class AbstractPacketClient extends BasePacket {
-
-    @Override
-    public final void write(ByteBuf data) {}
+@Suppress("unused")
+abstract class AbstractPacketClient : BasePacket() {
+    override fun write(data: ByteBuf?) {}
 }

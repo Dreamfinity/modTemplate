@@ -1,11 +1,10 @@
-package org.dreamfinity.template.network.packets;
+package org.dreamfinity.template.network.packets
 
-import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBuf
 
-public class ServerPacketName extends AbstractPacketServer {
-
-    @Override
-    public void write(ByteBuf data) throws IndexOutOfBoundsException {
-        data.writeBoolean(true);
+class ServerPacketName : AbstractPacketServer() {
+    @Throws(IndexOutOfBoundsException::class)
+    override fun write(data: ByteBuf?) {
+        data!!.writeBoolean(true)
     }
 }

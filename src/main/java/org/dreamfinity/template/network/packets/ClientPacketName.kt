@@ -1,13 +1,15 @@
-package org.dreamfinity.template.network.packets;
+package org.dreamfinity.template.network.packets
 
-import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBuf
 
-public class ClientPacketName extends AbstractPacketClient{
+class ClientPacketName : AbstractPacketClient() {
+    var message = ""
+    override fun write(data: ByteBuf?) {
+        TODO("Not yet implemented")
+    }
 
-    public String message = "";
-
-    @Override
-    public void read(ByteBuf data) throws IndexOutOfBoundsException {
-        this.message = this.readString(data);
+    @Throws(IndexOutOfBoundsException::class)
+    override fun read(data: ByteBuf?) {
+        message = readString(data!!)
     }
 }
