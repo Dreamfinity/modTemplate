@@ -6,5 +6,12 @@ Pre-requirements:
 
 To use template for Java use
 ```shell
-python -m cookiecutter 
+python -m cookiecutter https://github.com/Dreamfinity/modTemplate/ -c cookiecutter-java
 ```
+
+To use template for Kotlin use
+```shell
+python -m cookiecutter https://github.com/Dreamfinity/modTemplate/ -c cookiecutter-kotlin
+```
+
+Then just follow instructions and your project will be created!
