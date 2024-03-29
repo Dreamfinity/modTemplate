@@ -1,10 +1,10 @@
-package org.dreamfinity.template.network.server;
+package {{cookiecutter.group_id}}.{{cookiecutter.modid}}.network.server;
 
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.PacketBuffer;
-import org.dreamfinity.template.Template;
-import org.dreamfinity.template.network.AbstractMessage.AbstractServerMessage;
+import {{cookiecutter.group_id}}.{{cookiecutter.modid}}.{{cookiecutter.mod_main_class_name}};
+import {{cookiecutter.group_id}}.{{cookiecutter.modid}}.network.AbstractMessage.AbstractServerMessage;
 
 public class OpenGuiMessage extends AbstractServerMessage<OpenGuiMessage> {
 
@@ -30,7 +30,7 @@ public class OpenGuiMessage extends AbstractServerMessage<OpenGuiMessage> {
 
 	@Override
 	public void process(EntityPlayer player, Side side) {
-		player.openGui(Template.instance, this.id, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
+		player.openGui({{cookiecutter.mod_main_class_name}}.instance, this.id, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
 	}
 
 }

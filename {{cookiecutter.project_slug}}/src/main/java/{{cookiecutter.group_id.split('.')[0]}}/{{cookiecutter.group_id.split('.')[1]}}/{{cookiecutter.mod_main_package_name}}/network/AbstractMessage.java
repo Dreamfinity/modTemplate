@@ -1,4 +1,4 @@
-package org.dreamfinity.template.network;
+package {{cookiecutter.group_id}}.{{cookiecutter.modid}}.network;
 
 import com.google.common.base.Throwables;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
@@ -8,7 +8,7 @@ import cpw.mods.fml.relauncher.Side;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.PacketBuffer;
-import org.dreamfinity.template.Template;
+import {{cookiecutter.group_id}}.{{cookiecutter.modid}}.{{cookiecutter.mod_main_class_name}};
 
 import java.io.IOException;
 
@@ -47,7 +47,7 @@ public abstract class AbstractMessage<T extends AbstractMessage<T>> implements I
 		if (!msg.isValidOnSide(ctx.side)) {
 			throw new RuntimeException("Invalid side " + ctx.side.name() + " for " + msg.getClass().getSimpleName());
 		}
-		msg.process(Template.proxy.getPlayerEntity(ctx), ctx.side);
+		msg.process({{cookiecutter.mod_main_class_name}}.proxy.getPlayerEntity(ctx), ctx.side);
 		return null;
 	}
 

@@ -1,4 +1,4 @@
-package org.dreamfinity.template.network;
+package {{cookiecutter.group_id}}.{{cookiecutter.modid}}.network;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
@@ -7,14 +7,14 @@ import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import org.dreamfinity.template.Template;
-import org.dreamfinity.template.network.server.OpenGuiMessage;
+import {{cookiecutter.group_id}}.{{cookiecutter.modid}}.{{cookiecutter.mod_main_class_name}};
+import {{cookiecutter.group_id}}.{{cookiecutter.modid}}.network.server.OpenGuiMessage;
 
 public class PacketDispatcher {
 
 	private static byte packetId = 0;
 
-	private static final SimpleNetworkWrapper dispatcher = NetworkRegistry.INSTANCE.newSimpleChannel(Template.MODID);
+	private static final SimpleNetworkWrapper dispatcher = NetworkRegistry.INSTANCE.newSimpleChannel({{cookiecutter.mod_main_class_name}}.MODID);
 
 	public static void registerPackets() {
 		registerMessage(OpenGuiMessage.class);

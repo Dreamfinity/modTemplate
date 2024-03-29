@@ -1,0 +1,11 @@
+{
+  "project_name": "Java Mod Template",
+  "project_slug": "{{cookiecutter.project_name.replace(' ', '_')}}",
+  "group_id": "com.example",
+  "mod_name": "Mod Example",
+  "mod_main_class_name": "{{cookiecutter.mod_name.replace(' ', '')}}",
+  "modid": "{{cookiecutter.mod_main_class_name.lower()}}",
+  "minecraft_username": "Developer",
+  "author_name": "Author",
+  "author_email": "author@example.com"
+}

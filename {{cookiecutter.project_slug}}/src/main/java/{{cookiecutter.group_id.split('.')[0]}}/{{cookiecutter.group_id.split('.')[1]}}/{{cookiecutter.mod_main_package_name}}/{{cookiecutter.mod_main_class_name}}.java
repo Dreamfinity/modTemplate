@@ -1,4 +1,4 @@
-package org.dreamfinity.template;
+package {{cookiecutter.group_id}}.{{cookiecutter.modid}};
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -7,25 +7,25 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.dreamfinity.template.proxy.CommonProxy;
+import {{cookiecutter.group_id}}.{{cookiecutter.modid}}.proxy.CommonProxy;
 
 
 @Mod(
-    modid = Template.MODID,
-    name = Template.NAME,
-    version = Template.VERSION
+    modid = {{cookiecutter.mod_main_class_name}}.MODID,
+    name = {{cookiecutter.mod_main_class_name}}.NAME,
+    version = {{cookiecutter.mod_main_class_name}}.VERSION
 )
-public class Template {
-    public static final  String MODID = "template";
-    public static final String NAME = "Mod Template";
+public class {{cookiecutter.mod_main_class_name}} {
+    public static final  String MODID = "{{cookiecutter.modid}}";
+    public static final String NAME = "{{cookiecutter.project_name}}";
     public static final String VERSION = "@version@";
     public static Logger logger = LogManager.getLogger(MODID);
     @Mod.Instance(MODID)
-    public static Template instance;
+    public static {{cookiecutter.mod_main_class_name}} instance;
 
     @SidedProxy(
-        clientSide = "org.dreamfinity.template.proxy.ClientProxy",
-        serverSide = "org.dreamfinity.template.proxy.CommonProxy"
+        clientSide = "{{cookiecutter.group_id}}.{{cookiecutter.modid}}.proxy.ClientProxy",
+        serverSide = "{{cookiecutter.group_id}}.{{cookiecutter.modid}}.proxy.CommonProxy"
     )
     public static CommonProxy proxy;
 

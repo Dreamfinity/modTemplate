@@ -1,4 +1,4 @@
-package org.dreamfinity.template.network.packets;
+package {{cookiecutter.group_id}}.{{cookiecutter.modid}}.network.packets;
 
 public enum EnumPacket {
     GUILD_NAME(ClientPacketName.class),

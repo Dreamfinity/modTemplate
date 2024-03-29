@@ -1,4 +1,4 @@
-package org.dreamfinity.template.network.packets;
+package {{cookiecutter.group_id}}.{{cookiecutter.modid}}.network.packets;
 
 import io.netty.buffer.ByteBuf;
 
