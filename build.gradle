@@ -11,7 +11,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath("com.anatawa12.forge:ForgeGradle:1.2-1.0.+") {
+        classpath("com.anatawa12.forge:ForgeGradle:1.2-1.1.+") {
             changing = true
         }
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -63,12 +63,12 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.13.0'
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.0'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
-    implementation 'org.dreamfinity:craftbukkit:1.7.10-R0.1:dev'
-    implementation 'com.google.code.gson:gson:2.8.8'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.13.0'             // jackson serialization lib
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.0'      // jackson serialization lib
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'       // jackson serialization lib
+    implementation 'com.google.code.gson:gson:2.8.9'                            // GSON serialization lib
+    implementation 'org.dreamfinity:craftbukkit:1.7.10-R0.1:dev'                // CraftBukkit integration, should be used in hybrid cores
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"    // Kotlin std for java8
 }
 
 processResources {
@@ -97,12 +97,12 @@ jar {
     }
 }
 
-task buildClient(type: GradleBuild) {
+tasks.register('buildClient', GradleBuild) {
     startParameter.projectProperties = ["isClientBuild": "true"]
     tasks = ["build"]
 }
 
-task runProtectedClient(type: GradleBuild) {
+tasks.register('runProtectedClient', GradleBuild) {
     startParameter.projectProperties = ["isClientBuild": "true"]
     tasks = ["runClient"]
 }
@@ -118,7 +118,7 @@ def semanticVersioning = [
 
 semanticVersioning.keySet().each { semVerType ->
     tasks.register(semVerType, WriteProperties) {
-        outputFile = file(projectBuildPropertiesFile)
+        destinationFile = file(projectBuildPropertiesFile)
         projectBuildProperties.replace(
                 "buildVersion",
                 semVerType.toLowerCase() == "justbuild"
@@ -137,7 +137,7 @@ tasks.register("TestSemVerBuilds", GradleBuild) {
 }
 
 def makeVersion(String bumpType) {
-    def prevVersion = project.version
+    def prevVersion = project.version as String
     def (major, minor, patch) = prevVersion.tokenize(".") as Collection<String>
     def newVersion
     println("Old version: ${prevVersion}, old build number: ${project.buildVersion}")
